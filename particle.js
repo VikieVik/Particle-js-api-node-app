@@ -1,9 +1,12 @@
 /** 
- * This node app inetracts with vikas singhs particle account and alllows 
- * us to do stuff.
+ * This node app inetracts with particle.io account and alllows 
+ * us to do stuff documented below.
+ * This base progarm can be used for dry run of particle.io js sdk
  * refer particle js api docs for more
  * https://docs.particle.io/reference/SDKs/javascript/#login
  * 
+ * Author: Singh Vikas M.
+ * Date: 19/12/19
  * */ 
 
 const json = require('json');// import json module
@@ -12,8 +15,8 @@ var particle = new Particle(); // craete particle instance from library
 var token;  // variable to store token recieved during login
 
 // Enter cloud credentials
-const myname  = ('particle account username');
-const mypass = ('particle account password');
+const myname  = ('particle.io account username');
+const mypass = ('particle.io account password');
 
 particle.login({username: myname, password: mypass})
 .then(function(data){
@@ -30,6 +33,12 @@ devicesPr.then(
   console.log('Devices: ', devices); // log list of devices
   var deviceId = devices.body[0].id; // id of device index 0 on the list
   console.log('device id of first device:',deviceId); // log device id 
+/**
+ * Add function call feature for the same device and use delay npm module 
+ * for it 
+ * 
+ */
+
 },
   function(err) {
     console.log('List devices call failed: ', err); //list device call failure
